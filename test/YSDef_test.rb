@@ -9,16 +9,16 @@ class YSDefTest < Minitest::Test
     @d = YSDef.new
   end
 
-  def test_YSextract_json_2_hash
-    assert_equal( {"key"=>"value"} , @d.YSextract_json_2_hash( @test_data + '/YSSampleData.json') )
+  def test_YSExtract_json_2_hash
+    assert_equal( {"key"=>"value"} , @d.YSExtract_json_2_hash( @test_data + '/YSSampleData.json') )
   end
 
-  def test_YSextract_json_2_array
-    assert_equal( ['{',"\t" + '"key":"value"','}'] , @d.YSextract_json_2_array( @test_data + '/YSSampleData.json') )
+  def test_YSExtract_json_2_array
+    assert_equal( ['{',"\t" + '"key":"value"','}'] , @d.YSExtract_json_2_array( @test_data + '/YSSampleData.json') )
   end
 
-  def test_YSbanner
-    assert_equal'######################################## text' , @d.YSbanner('text')
+  def test_YSBanner
+    assert_equal'######################################## text' , @d.YSBanner('text')
   end
   
 end
