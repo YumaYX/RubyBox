@@ -33,5 +33,43 @@ module YSMod
     def YSBanner(str = '', length = 40)
       '#' * length + ' ' + str
     end
+
+    # make Array before pattern
+    # @param [Array] Target Array
+    # @param [String] Pattern String
+    # @return [Array]
+    def YSExtract_array_before_include(target_array, pattern)
+      YSExtract_array_befaft_include(target_array, pattern, 'before')
+    end
+
+    # make Array after pattern
+    # @param [Array] Target Array
+    # @param [String] Pattern String
+    # @return [Array]
+    def YSExtract_array_after_include(target_array, pattern)
+      YSExtract_array_befaft_include(target_array, pattern, 'after')
+    end
+
+
+    private
+
+    # make Array before/after pattern
+    # @param [Array] Target Array
+    # @param [String] Pattern String
+    # @param [String] after or not
+    # @return [Array]
+    def YSExtract_array_befaft_include(target_array,pattern,befaft)
+      index = target_array.index(pattern)
+      array = target_array.dup
+      return array if index.nil?
+      if (befaft.eql? 'after')
+        array.shift(index)
+      else
+        array.pop(target_array.length - index -1)
+      end
+      array
+    end
+    
   end
+
 end
