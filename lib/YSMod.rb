@@ -59,7 +59,13 @@ module YSMod
     # @param [String] after or not
     # @return [Array]
     def YSExtract_array_befaft_include(target_array,pattern,befaft)
-      index = target_array.index(pattern)
+      index = nil
+      target_array.each_with_index do |element, i|
+        if element =~ /#{pattern}/
+          index = i
+          break
+        end
+      end
       array = target_array.dup
       return array if index.nil?
       if (befaft.eql? 'after')

@@ -25,6 +25,7 @@ class YSModTest < Minitest::Test
     assert_equal( ['K', 'L', 'M'] , YSMod.YSExtract_array_before_include(@arr, 'M'))
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_before_include(@arr, 'N'))
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_before_include(@arr, 'X'))
+    assert_equal( ['K'] , YSMod.YSExtract_array_before_include(@arr, '.*'))
   end
 
   def test_YSExtract_array_after_include
@@ -32,6 +33,8 @@ class YSModTest < Minitest::Test
     assert_equal( ['L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, 'L'))
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, 'K'))
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, 'X'))
+    assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, '.'))
+    assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, '.*'))
   end
   
 end
