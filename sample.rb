@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require './lib/YSDef'
 
 require './lib/YSMod'
 puts YSMod.YSBanner("add Module", 10)
