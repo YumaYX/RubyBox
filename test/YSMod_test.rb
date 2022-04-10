@@ -36,5 +36,13 @@ class YSModTest < Minitest::Test
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, '.'))
     assert_equal( ['K', 'L', 'M', 'N'] , YSMod.YSExtract_array_after_include(@arr, '.*'))
   end
+
+  def test_YSCompare_arrays
+    array =[ 'a','b','c','d']
+    pattern = ['b','c','x']
+    exptected = ["a","[INCLUDE] b","[INCLUDE] c", "d"]
+    assert_equal exptected , YSMod.YSCompare_arrays(array, pattern)
+  end
+
   
 end

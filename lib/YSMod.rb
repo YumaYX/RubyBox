@@ -50,6 +50,23 @@ module YSMod
       YSExtract_array_befaft_include(target_array, pattern, 'after')
     end
 
+    # make Array with [INCLUDE] tag if patterns include
+    # @param [Array] Target Array(Strings)
+    # @param [Array] Pattern Strings
+    # @return [Array]
+    def YSCompare_arrays(array, pattern)
+      outcome = []
+      prefix = "[INCLUDE] "
+      array.each do |element|
+        if pattern.include?(element)
+          outcome.push (prefix + element)
+        else
+          outcome.push element
+        end
+      end
+      outcome
+    end
+
 
     private
 
