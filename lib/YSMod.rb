@@ -18,7 +18,7 @@ module YSMod
     # make Text File to ruby's Array
     # @param [String] File name(Location)
     # @return [Array]
-    def YSExtract_json_2_array(textfile = '')
+    def YSExtract_text_2_array(textfile = '')
       arr = []
       File.foreach(textfile) do |line|
         arr.push line.chomp

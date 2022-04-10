@@ -12,8 +12,8 @@ class YSModTest < Minitest::Test
     assert_equal( {"key"=>"value"} , YSMod.YSExtract_json_2_hash( @test_data + '/YSSampleData.json') )
   end
 
-  def test_YSExtract_json_2_array
-    assert_equal( ['{',"\t" + '"key":"value"','}'] , YSMod.YSExtract_json_2_array( @test_data + '/YSSampleData.json') )
+  def test_YSExtract_text_2_array
+    assert_equal( ['{',"\t" + '"key":"value"','}'] , YSMod.YSExtract_text_2_array( @test_data + '/YSSampleData.json') )
   end
 
   def test_YSBanner
