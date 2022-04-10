@@ -4,6 +4,9 @@ require 'redcarpet'
 
 module YSMod2
   class << self
+    # make html form markdown file
+    # @param [String] markdown file name(Location)
+    # @return [String] html
     def YSMarkdown_file_2_html(filename = '')
       return nil unless File.exist?(filename)
       rawdata = ''
@@ -15,6 +18,9 @@ module YSMod2
       YSMarkdown_2_html(rawdata).gsub(/[\n]+/,"\n")
     end
 
+    # make html form markdown
+    # @param [String] markdown
+    # @return [String] html
     def YSMarkdown_2_html(md)
       data = Redcarpet::Markdown.new(
         Redcarpet::Render::HTML,
