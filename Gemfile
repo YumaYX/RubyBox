@@ -2,6 +2,6 @@
 
 source "https://rubygems.org"
 
-# For YSMod2
+# For Y6
 gem 'redcarpet', ">= 3.5.1"
 
