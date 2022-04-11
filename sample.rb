@@ -1,9 +1,19 @@
 #!/usr/bin/env ruby
+require './lib/Y6'
 
-require './lib/YSMod'
-puts YSMod.YSBanner("add Module", 10)
-puts YSMod.methods.select { |element| element =~ /^YS/ }
 
-require './lib/YSMod2'
-puts YSMod.YSBanner("add Module2", 10)
-puts YSMod2.methods.select { |element| element =~ /^YS/ }
+puts Y3.banner "Y3"
+
+
+puts Y6.ancestors
+
+
+class YClass
+  include Y6
+  def y_def
+  	banner "from y_def of YClass", 6
+  end
+end
+
+y = YClass.new
+puts y.y_def

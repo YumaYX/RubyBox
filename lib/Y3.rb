@@ -2,12 +2,12 @@
 
 require 'json'
 
-module YSMod
+module Y3
   class << self
     # make JSON File to ruby's Hash
     # @param [String] JSON file name(Location)
     # @return [Hash]
-    def YSExtract_json_2_hash(jsonfile = '')
+    def extract_json_file_2_hash(jsonfile = '')
       hash = {}
       File.open(jsonfile) do |j|
         hash = JSON.load(j)
@@ -18,7 +18,7 @@ module YSMod
     # make Text File to ruby's Array
     # @param [String] File name(Location)
     # @return [Array]
-    def YSExtract_text_2_array(textfile = '')
+    def extract_text_file_2_array(textfile = '')
       arr = []
       File.foreach(textfile) do |line|
         arr.push line.chomp
@@ -30,7 +30,7 @@ module YSMod
     # @param [String] message
     # @param [Integer] '#' length
     # @return [String]
-    def YSBanner(str = '', length = 40)
+    def banner(str = '', length = 40)
       '#' * length + ' ' + str
     end
 
@@ -38,23 +38,23 @@ module YSMod
     # @param [Array] Target Array
     # @param [String] Pattern String
     # @return [Array]
-    def YSExtract_array_before_include(target_array, pattern)
-      YSExtract_array_befaft_include(target_array, pattern, 'before')
+    def extract_array_before_include(target_array, pattern)
+      extract_array_befaft_include(target_array, pattern, 'before')
     end
 
     # make Array after pattern
     # @param [Array] Target Array
     # @param [String] Pattern String
     # @return [Array]
-    def YSExtract_array_after_include(target_array, pattern)
-      YSExtract_array_befaft_include(target_array, pattern, 'after')
+    def extract_array_after_include(target_array, pattern)
+      extract_array_befaft_include(target_array, pattern, 'after')
     end
 
     # make Array with [INCLUDE] tag if patterns include
     # @param [Array] Target Array(Strings)
     # @param [Array] Pattern Strings
     # @return [Array]
-    def YSCompare_arrays(array, pattern)
+    def compare_arrays(array, pattern)
       outcome = []
       prefix = "[INCLUDE] "
       array.each do |element|
@@ -68,6 +68,7 @@ module YSMod
     end
 
 
+
     private
 
     # make Array before/after pattern
@@ -75,7 +76,7 @@ module YSMod
     # @param [String] Pattern String
     # @param [String] after or not
     # @return [Array]
-    def YSExtract_array_befaft_include(target_array,pattern,befaft)
+    def extract_array_befaft_include(target_array,pattern,befaft)
       index = nil
       target_array.each_with_index do |element, i|
         if element =~ /#{pattern}/
