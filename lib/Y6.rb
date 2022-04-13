@@ -6,8 +6,6 @@ require './lib/Y3'
 
 module Y6
 
-  #include Y3
-
   class << self
 
     # make html form markdown file
@@ -18,7 +16,7 @@ module Y6
       rawdata = ''
       File.open(filename, 'r') do |markdown_file|
         markdown_file.each_line do |line|
-          rawdata = rawdata + line
+          rawdata << line
         end
       end
       markdown_2_html(rawdata).gsub(/[\n]+/,"\n")
