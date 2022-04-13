@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'json'
+require 'csv'
 
 module Y3
   class << self
@@ -24,6 +25,13 @@ module Y3
         arr.push line.chomp
       end
       arr
+    end
+
+    # make CSV File to ruby's Array
+    # @param [String] CSV File name(Location)
+    # @return [Array]
+    def extract_csv_file_2_array(csvfile = '')
+      CSV.read(csvfile)
     end
 
     # display banner message

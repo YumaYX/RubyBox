@@ -16,6 +16,10 @@ class Y3Test < Minitest::Test
     assert_equal( ['{',"\t" + '"key":"value"','}'] , Y3.extract_text_file_2_array( @test_data + '/YSSampleData.json') )
   end
 
+  def test_extract_csv_file_2_array
+    assert_equal( [['1', '2'], ['ABC', 'XYZ']] , Y3.extract_csv_file_2_array( @test_data + '/YSSampleData.csv') )
+  end
+
   def test_banner
     assert_equal'######################################## text' , Y3.banner('text')
   end
