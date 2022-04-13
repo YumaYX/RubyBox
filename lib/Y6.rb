@@ -6,7 +6,7 @@ require './lib/Y3'
 
 module Y6
 
-  include Y3
+  #include Y3
 
   class << self
 
