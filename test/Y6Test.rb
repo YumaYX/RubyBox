@@ -16,4 +16,9 @@ class Y6Test < Minitest::Test
     assert_nil Y6.markdown_file_2_html('not_exist')
   end
   
+  def test_get_sha256
+     assert_equal 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', Y6.get_sha256('a')
+     assert_equal '3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d', Y6.get_sha256('b')
+  end
+
 end

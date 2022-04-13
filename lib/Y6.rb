@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'redcarpet'
+require 'digest/sha2'
 require './lib/Y3'
 
 module Y6
@@ -36,6 +37,13 @@ module Y6
         space_after_headers: true
       )
       data.render(md)
+    end
+
+    # make SHA256 Digest
+    # @param [String] String
+    # @return [String] SHA256 Hex Digest
+    def get_sha256(target='')
+      Digest::SHA256.hexdigest(target)
     end
 
   end
