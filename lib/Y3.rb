@@ -75,6 +75,14 @@ module Y3
       outcome
     end
 
+    def extract_line_range(target_array=[], start_str='', end_str='')
+      array = []
+      target_array.each do |element|
+        next unless element =~ /#{start_str}/ .. element =~ /#{end_str}/
+        array.push element
+      end
+      array
+    end
 
 
     private

@@ -48,5 +48,12 @@ class Y3Test < Minitest::Test
     assert_equal exptected , Y3.compare_arrays(array, pattern)
   end
 
-  
+  def test_extract_line_range
+    assert_equal( @arr , Y3.extract_line_range(@arr,'K','N',) )
+    assert_equal( ['L', 'M', 'N'] , Y3.extract_line_range(@arr,'L','N',) )
+    assert_equal( ['L', 'M'] , Y3.extract_line_range(@arr,'L','M',) )
+    assert_equal( ['L'] , Y3.extract_line_range(@arr,'L','L',) )
+    assert_equal( @arr , Y3.extract_line_range(@arr,'','',) )
+  end
+
 end
