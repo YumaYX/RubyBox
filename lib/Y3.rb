@@ -75,6 +75,12 @@ module Y3
       outcome
     end
 
+
+    # make Array with range
+    # @param [Array] Target Array(Strings)
+    # @param [Array] START Pattern Strings
+    # @param [Array] END Pattern Strings
+    # @return [Array]
     def extract_line_range(target_array=[], start_str='', end_str='')
       array = []
       target_array.each do |element|
