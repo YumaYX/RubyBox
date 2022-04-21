@@ -90,6 +90,17 @@ module Y3
       array
     end
 
+    # make time difference
+    # @param [DateTime]
+    # @param [DateTime]
+    # @return [String]
+    def calc_time_diff(date1, date2)
+      diff = date2 - date1
+      hdiff = ( diff * 24).to_i
+      mdiff = ((diff * 24 * 60) % 60).to_i
+      "#{hdiff}:#{mdiff}"
+    end
+
 
     private
 

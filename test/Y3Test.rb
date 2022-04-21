@@ -56,4 +56,14 @@ class Y3Test < Minitest::Test
     assert_equal( @arr , Y3.extract_line_range(@arr,'','',) )
   end
 
+  def test_diff_hourmin
+    require 'date'
+    d1 = DateTime.new(1999,7,31,12,34,00)
+    d2 = DateTime.new(1999,7,31,13,44,00)
+    assert_equal( "1:10", Y3.calc_time_diff(d1,d2) )
+    assert_equal( "-1:50", Y3.calc_time_diff(d2,d1) )
+    d3 = DateTime.new(1999,8,1, 9,45,00)
+    assert_equal( "21:11", Y3.calc_time_diff(d1,d3) )
+  end
+
 end
