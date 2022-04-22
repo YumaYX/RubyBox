@@ -21,7 +21,9 @@ class Y3Test < Minitest::Test
   end
 
   def test_banner
-    assert_equal'######################################## text' , Y3.banner('text')
+    assert_output("######################################## text\n") {
+      Y3.banner('text')
+    }
   end
 
   def test_extract_array_before_include

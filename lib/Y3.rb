@@ -39,7 +39,7 @@ module Y3
     # @param [Integer] '#' length
     # @return [String]
     def banner(str = '', length = 40)
-      '#' * length + ' ' + str
+      puts '#' * length + ' ' + str
     end
 
     # make Array before pattern
