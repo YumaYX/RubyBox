@@ -73,4 +73,22 @@ class Y3Test < Minitest::Test
     assert_equal({}, Y3.count_appearance_frequency([]))
   end
 
+  def test_info
+    assert_output("[INFO]: info\n") {
+      Y3.info "info"
+    }
+    assert_output("[INFO]: infoargv2\n") {
+      Y3.info "info" "argv2"
+    }
+  end
+
+  def test_warn
+    assert_output("[WARN]: warn\n") {
+      Y3.warn "warn"
+    }
+    assert_output("[WARN]: warnargv2\n") {
+      Y3.warn "warn" "argv2"
+    }
+  end
+
 end

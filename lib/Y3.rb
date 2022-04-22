@@ -112,6 +112,14 @@ module Y3
       hash
     end
 
+    def info(message)
+      puts "[INFO]: #{message}"
+    end
+
+    def warn(message)
+      puts "[WARN]: #{message}"
+    end
+
     private
 
     # make Array before/after pattern
