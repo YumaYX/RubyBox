@@ -8,7 +8,7 @@ module Y6
 
   class << self
 
-    # make html form markdown file
+    # make html from markdown file
     # @param [String] markdown file name(Location)
     # @return [String] html
     def markdown_file_2_html(filename = '')
