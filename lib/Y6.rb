@@ -22,7 +22,7 @@ module Y6
       markdown_2_html(rawdata).gsub(/[\n]+/,"\n")
     end
 
-    # make html form markdown
+    # make html from markdown
     # @param [String] markdown
     # @return [String] html
     def markdown_2_html(md)
