@@ -101,6 +101,16 @@ module Y3
       "#{hdiff}:#{mdiff}"
     end
 
+    # make count apprearance frequency(hash)
+    # @param [Array] Array(string)
+    # @return [Hash] count apprearance frequency hash with symbol
+    def count_appearance_frequency(array)
+      hash = Hash.new(0)
+      array.each do |element|
+        hash[element.to_sym]+=1
+      end
+      hash
+    end
 
     private
 

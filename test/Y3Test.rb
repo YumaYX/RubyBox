@@ -66,4 +66,11 @@ class Y3Test < Minitest::Test
     assert_equal( "21:11", Y3.calc_time_diff(d1,d3) )
   end
 
+  def test_count_appearance_frequency
+    assert_equal({:K=>1,:L=>1,:M=>1,:N=>1}, Y3.count_appearance_frequency(@arr))
+    array=['a1','a2','a2']
+    assert_equal({:a1=>1,:a2=>2}, Y3.count_appearance_frequency(array))
+    assert_equal({}, Y3.count_appearance_frequency([]))
+  end
+
 end
