@@ -112,10 +112,14 @@ module Y3
       hash
     end
 
+    # display information template
+    # @param [String] message
     def info(message)
       puts "[INFO]: #{message}"
     end
 
+    # display warning template
+    # @param [String] message
     def warn(message)
       puts "[WARN]: #{message}"
     end
