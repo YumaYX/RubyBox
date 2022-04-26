@@ -1,3 +1,10 @@
+/*
+
 .DS_Store
-doc
-/*.rb
+
+!/Gemfile
+!/Gemfile.lock
+!/README.md
+!/lib/
+!/test/
+!/shells/
