@@ -2,7 +2,7 @@
 
 require 'redcarpet'
 require 'digest/sha2'
-require File.expand_path('..',__FILE__) + "/Y3"
+require_relative 'Y3'
 
 module Y6
 

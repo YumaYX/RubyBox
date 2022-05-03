@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/YSJson2Hash'
+require_relative './../lib/YSJson2Hash'
 
 class YSJson2HashTest < Minitest::Test
 

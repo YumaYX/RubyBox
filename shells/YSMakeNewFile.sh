@@ -19,7 +19,7 @@ test_filename="${filename}Test.rb"
 
 cat <<EOF > ./test/"${test_filename}"
 require 'minitest/autorun'
-require './lib/${filename}'
+require_relative '../lib/${filename}'
 
 class ${test_filename%.rb} < Minitest::Test
 

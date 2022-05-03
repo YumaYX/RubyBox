@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/YSWebDriver'
+require_relative './../lib/YSWebDriver'
 
 class YSWebDriverTest < Minitest::Test
 

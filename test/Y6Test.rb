@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/Y6'
+require_relative './../lib/Y6'
 
 class Y6Test < Minitest::Test
 

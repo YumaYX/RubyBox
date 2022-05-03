@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/YSDecrypt'
+require_relative './../lib/YSDecrypt'
 
 class YSDecryptTest < Minitest::Test
 
