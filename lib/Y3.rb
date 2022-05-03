@@ -4,6 +4,12 @@ require 'json'
 require 'csv'
 
 module Y3
+
+  # lib dir
+  LIBDIR = File.expand_path('../', __FILE__)
+  # test dir
+  TESTDIR = File.expand_path('../../test', __FILE__)
+
   class << self
     # make JSON File to ruby's Hash
     # @param [String] JSON file name(Location)
