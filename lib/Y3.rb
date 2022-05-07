@@ -2,6 +2,7 @@
 
 require 'json'
 require 'csv'
+require 'erb'
 
 module Y3
 
@@ -128,6 +129,13 @@ module Y3
     # @param [String] message
     def warn(message)
       puts "[WARN]: #{message}"
+    end
+
+    # Convert ERB File to String
+    # @param [String] File Name
+    # @return [String] Generated Content
+    def erb_2_string(filename='')
+      ERB.new(File.read(filename)).result(binding)
     end
 
     private

@@ -93,4 +93,8 @@ class Y3Test < Minitest::Test
     }
   end
 
+  def test_erb_2_string
+    assert_equal("0\n1\n2\n", Y3.erb_2_string(@test_data + '/YSSampleData.erb'))
+  end
+
 end
