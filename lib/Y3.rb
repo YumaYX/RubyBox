@@ -138,6 +138,10 @@ module Y3
       ERB.new(File.read(filename)).result(binding)
     end
 
+    def file_writer(filename,content)
+      File.write(filename, content)
+    end
+
     private
 
     # make Array before/after pattern

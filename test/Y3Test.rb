@@ -97,4 +97,12 @@ class Y3Test < Minitest::Test
     assert_equal("0\n1\n2\n", Y3.erb_2_string(@test_data + '/YSSampleData.erb'))
   end
 
+  def test_file_writer
+    file = 'test_file.txt'
+    exptect = "a\nb\nc\n"
+    Y3.file_writer(file, exptect)
+    assert_equal(exptect, File.read(file) )
+    File.delete(file) if File.exist? file
+  end
+
 end
