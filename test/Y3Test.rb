@@ -44,10 +44,9 @@ class Y3Test < Minitest::Test
   end
 
   def test_compare_arrays
-    array =[ 'a','b','c','d']
-    pattern = ['b','c','x']
-    exptected = ["a","[INCLUDE] b","[INCLUDE] c", "d"]
-    assert_equal exptected , Y3.compare_arrays(array, pattern)
+    pattern = ['L','M','X']
+    exptected = ["K","[INCLUDE] L","[INCLUDE] M", "N"]
+    assert_equal exptected , Y3.compare_arrays(@arr, pattern)
   end
 
   def test_extract_line_range

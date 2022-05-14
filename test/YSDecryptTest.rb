@@ -11,4 +11,10 @@ class YSDecryptTest < Minitest::Test
       assert_equal("abc\n" ,@d.decrypt)
   end
 
+  def teardown
+    ['./private.key', './public.key', './encrypted'].each do |temp|
+      File.delete temp if File.exist?(temp)
+    end
+  end
+
 end
