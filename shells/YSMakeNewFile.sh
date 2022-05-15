@@ -23,6 +23,12 @@ require_relative '../lib/${filename}'
 
 class ${test_filename%.rb} < Minitest::Test
 
+  def setup
+  end
+
+  def teardown
+  end
+
 end
 EOF
 
