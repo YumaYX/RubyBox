@@ -103,4 +103,15 @@ class Y3Test < Minitest::Test
     File.delete(file) if File.exist? file
   end
 
+  def test_check_eql_files
+    assert_equal(true, Y3.check_eql_files(@test_data + '/YSSampleData.erb', @test_data + '/YSSampleData.erb'))
+    assert_equal(false, Y3.check_eql_files(@test_data + '/YSSampleData.erb', @test_data + '/YSSampleData.md'))
+  end
+
+  def test_check_eql_file_content
+    assert_equal(true, Y3.check_eql_file_content(@test_data + '/YSSampleData.erb', @test_data + '/YSSampleData.erb'))
+    assert_equal(true, Y3.check_eql_file_content(@test_data + '/YSSampleData01.txt', @test_data + '/YSSampleData02.txt'))
+    assert_equal(false, Y3.check_eql_file_content(@test_data + '/YSSampleData.erb', @test_data + '/YSSampleData02.txt'))
+  end
+
 end

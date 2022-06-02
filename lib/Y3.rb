@@ -3,6 +3,7 @@
 require 'json'
 require 'csv'
 require 'erb'
+require 'digest'
 
 module Y3
 
@@ -142,7 +143,19 @@ module Y3
       File.write(filename, content)
     end
 
+    def check_eql_files(file1, file2)
+      get_file_digest_sha256(file1).eql?(get_file_digest_sha256(file2))
+    end
+
+    def check_eql_file_content(file1, file2)
+      extract_text_file_2_array(file1).sort == extract_text_file_2_array(file2).sort
+    end
+
     private
+
+    def get_file_digest_sha256(filename)
+      Digest::SHA256.file(filename).hexdigest()
+    end
 
     # make Array before/after pattern
     # @param [Array] Target Array
