@@ -10,11 +10,11 @@ unless ARGV.length == 1
 end
 
 
-controller_name = ARGV[0]
+controller_name = File.basename(ARGV[0], '.*')
 Y3.banner "making controller for #{controller_name}"
 
 
-template_dir = 'lib/template/YSPrepareController'
+template_dir = 'lib/template/'
 
 ['data', 'op'].each do |sub_directory|
   new_dir = sub_directory + '/' + controller_name
@@ -22,13 +22,13 @@ template_dir = 'lib/template/YSPrepareController'
   FileUtils.mkdir_p(new_dir)
 
   if sub_directory.eql?('data') then
-    config = ERB.new(File.read(template_dir + '/config.json.erb' )).result(binding)
+    config = ERB.new(File.read(template_dir + '/YSConfig.json.erb' )).result(binding)
     Y3.file_writer(new_dir + '/config.json' ,config)
   end
 end
 
 
-controller = ERB.new(File.read(template_dir + '/template.rb.erb' )).result(binding)
+controller = ERB.new(File.read(template_dir + '/YSTemplate.rb.erb' )).result(binding)
 Y3.file_writer("./#{controller_name}.rb" ,controller)
 
 exit 0
