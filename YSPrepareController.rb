@@ -11,8 +11,13 @@ end
 
 
 controller_name = File.basename(ARGV[0], '.*')
-Y3.banner "making controller for #{controller_name}"
+Y3.info "making controller for #{controller_name}"
 
+if File.exist?(controller_name + '.rb')
+  Y3.banner 'ERROR:'
+  Y3.banner "#{controller_name}.rb is already exist."
+  exit 255
+end
 
 template_dir = 'lib/template/'
 
