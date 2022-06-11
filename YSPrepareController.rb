@@ -10,7 +10,7 @@ unless ARGV.length == 1
 end
 
 
-controller_name = File.basename(ARGV[0], '.*')
+controller_name = File.basename(ARGV[0].chmop, '.*')
 Y3.info "making controller for #{controller_name}"
 
 if File.exist?(controller_name + '.rb')
