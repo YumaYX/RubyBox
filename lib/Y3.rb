@@ -139,10 +139,17 @@ module Y3
       ERB.new(File.read(filename)).result(binding)
     end
 
+    # Make New File
+    # @param [String] Output File Name
+    # @param [String] File content
     def file_writer(filename,content)
       File.write(filename, content)
     end
 
+    # Diff check 2 Files
+    # @Param [String] File 1
+    # @Param [String] File 2
+    # @return [Bool] true/false
     def check_eql_files(file1, file2)
       get_file_digest_sha256(file1).eql?(get_file_digest_sha256(file2))
     end
