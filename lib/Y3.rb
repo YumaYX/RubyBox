@@ -13,6 +13,27 @@ module Y3
   TESTDIR = File.expand_path('../../test', __FILE__)
 
   class << self
+
+    # display information template
+    # @param [String] message
+    def info(message)
+      puts "[INFO]: #{message}"
+    end
+
+    # display warning template
+    # @param [String] message
+    def warn(message)
+      puts "[WARN]: #{message}"
+    end
+
+    # display banner message
+    # @param [String] message
+    # @param [Integer] '#' length
+    # @return [String]
+    def banner(str = '', length = 40)
+      puts '#' * length + ' ' + str
+    end
+    
     # make JSON File to ruby's Hash
     # @param [String] JSON file name(Location)
     # @return [Hash]
@@ -42,73 +63,6 @@ module Y3
       CSV.read(csvfile)
     end
 
-    # display banner message
-    # @param [String] message
-    # @param [Integer] '#' length
-    # @return [String]
-    def banner(str = '', length = 40)
-      puts '#' * length + ' ' + str
-    end
-
-    # make Array before pattern
-    # @param [Array] Target Array
-    # @param [String] Pattern String
-    # @return [Array]
-    def extract_array_before_include(target_array, pattern)
-      extract_array_befaft_include(target_array, pattern, 'before')
-    end
-
-    # make Array after pattern
-    # @param [Array] Target Array
-    # @param [String] Pattern String
-    # @return [Array]
-    def extract_array_after_include(target_array, pattern)
-      extract_array_befaft_include(target_array, pattern, 'after')
-    end
-
-    # make Array with [INCLUDE] tag if patterns include
-    # @param [Array] Target Array(Strings)
-    # @param [Array] Pattern Strings
-    # @return [Array]
-    def compare_arrays(array, pattern)
-      outcome = []
-      prefix = "[INCLUDE] "
-      array.each do |element|
-        if pattern.include?(element)
-          outcome.push (prefix + element)
-        else
-          outcome.push element
-        end
-      end
-      outcome
-    end
-
-
-    # make Array with range
-    # @param [Array] Target Array(Strings)
-    # @param [Array] START Pattern Strings
-    # @param [Array] END Pattern Strings
-    # @return [Array]
-    def extract_line_range(target_array=[], start_str='', end_str='')
-      array = []
-      target_array.each do |element|
-        next unless element =~ /#{start_str}/ .. element =~ /#{end_str}/
-        array.push element
-      end
-      array
-    end
-
-    # make time difference
-    # @param [DateTime]
-    # @param [DateTime]
-    # @return [String]
-    def calc_time_diff(date1, date2)
-      diff = date2 - date1
-      hdiff = ( diff * 24).to_i
-      mdiff = ((diff * 24 * 60) % 60).to_i
-      "#{hdiff}:#{mdiff}"
-    end
-
     # make count apprearance frequency(hash)
     # @param [Array] Array(string)
     # @return [Hash] count apprearance frequency hash with symbol
@@ -118,18 +72,6 @@ module Y3
         hash[element.to_sym]+=1
       end
       hash
-    end
-
-    # display information template
-    # @param [String] message
-    def info(message)
-      puts "[INFO]: #{message}"
-    end
-
-    # display warning template
-    # @param [String] message
-    def warn(message)
-      puts "[WARN]: #{message}"
     end
 
     # Convert ERB File to String
@@ -144,47 +86,6 @@ module Y3
     # @param [String] File content
     def file_writer(filename,content)
       File.write(filename, content)
-    end
-
-    # Diff check 2 Files
-    # @Param [String] File 1
-    # @Param [String] File 2
-    # @return [Bool] true/false
-    def check_eql_files(file1, file2)
-      get_file_digest_sha256(file1).eql?(get_file_digest_sha256(file2))
-    end
-
-    def check_eql_file_content(file1, file2)
-      extract_text_file_2_array(file1).sort == extract_text_file_2_array(file2).sort
-    end
-
-    private
-
-    def get_file_digest_sha256(filename)
-      Digest::SHA256.file(filename).hexdigest()
-    end
-
-    # make Array before/after pattern
-    # @param [Array] Target Array
-    # @param [String] Pattern String
-    # @param [String] after or not
-    # @return [Array]
-    def extract_array_befaft_include(target_array,pattern,befaft)
-      index = nil
-      target_array.each_with_index do |element, i|
-        if element =~ /#{pattern}/
-          index = i
-          break
-        end
-      end
-      array = target_array.dup
-      return array if index.nil?
-      if (befaft.eql? 'after')
-        array.shift(index)
-      else
-        array.pop(target_array.length - index -1)
-      end
-      array
     end
     
   end
