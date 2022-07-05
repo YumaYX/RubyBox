@@ -8,10 +8,11 @@ require 'digest'
 module Y3
 
   # Directory
-  DTDIR   = File.expand_path('../../data/', __FILE__)
-  LIBDIR  = File.expand_path('../',         __FILE__)
-  OPDIR   = File.expand_path('../../op/',   __FILE__)
-  TESTDIR = File.expand_path('../../test/', __FILE__)
+  DATA_DIR     = File.expand_path('../../data/', __FILE__)
+  LIB_DIR      = File.expand_path('../',         __FILE__)
+  OP_DIR       = File.expand_path('../../op/',   __FILE__)
+  TEMPLATE_DIR = File.expand_path('../template/',__FILE__)
+  TEST_DIR     = File.expand_path('../../test/', __FILE__)
 
   # Common Variable
   # Date

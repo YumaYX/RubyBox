@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'fileutils'
-require_relative './lib/Y6'
+require_relative 'Y6'
 
 
 unless ARGV.length == 1
@@ -12,6 +12,7 @@ end
 
 controller_name = File.basename(ARGV[0].chomp, '.*')
 Y3.info "making controller for #{controller_name}"
+Y3.info "touch lib/#{controller_name}.rb"
 
 if File.exist?(controller_name + '.rb')
   Y3.banner 'ERROR:'
@@ -34,6 +35,6 @@ end
 
 
 controller = ERB.new(File.read(template_dir + '/YSTemplate.rb.erb' )).result(binding)
-Y3.file_writer("./#{controller_name}.rb" ,controller)
+Y3.file_writer("./lib/#{controller_name}.rb" ,controller)
 
 exit 0

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'fileutils'
-require_relative './lib/Y6'
+require_relative 'Y6'
 
 unless ARGV.length == 1
   Y3.banner 'ERROR:'
