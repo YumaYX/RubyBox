@@ -7,10 +7,18 @@ require 'digest'
 
 module Y3
 
+  # Directory
   DTDIR   = File.expand_path('../../data/', __FILE__)
   LIBDIR  = File.expand_path('../',         __FILE__)
   OPDIR   = File.expand_path('../../op/',   __FILE__)
   TESTDIR = File.expand_path('../../test/', __FILE__)
+
+  # Common Variable
+  # Date
+  DAYS    = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  DAYS_JP = ['日', '月', '火', '水', '木', '金', '土']
+  MONTHS  = ['January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December']
 
   class << self
 
