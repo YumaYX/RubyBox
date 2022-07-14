@@ -102,6 +102,15 @@ module Y3
     def file_writer(file_name, contents = '')
       File.write(file_name, contents)
     end
+
+    # Make Json File from Ruby Objects
+    # @param [String] Output File Name
+    # @param [Object] Json Contents
+    def json_writer(file_name, contents)
+      File.open(file_name, 'w') do |file|
+        JSON.dump(contents, file)
+      end
+    end
     
   end
 

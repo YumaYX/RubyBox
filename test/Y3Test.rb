@@ -77,4 +77,14 @@ class Y3Test < Minitest::Test
     File.delete(temp_file_for_test) if File.exist? temp_file_for_test
   end
 
+  def test_json_writer
+    temp_file_for_test = 'test_file.json'
+    [{"key"=>"value"}, @arr].each do |element|
+      exptect_contents = element
+      Y3.json_writer(temp_file_for_test, exptect_contents)
+      assert_equal(exptect_contents, Y3.make_jsonfile_hash(temp_file_for_test))
+      File.delete(temp_file_for_test) if File.exist? temp_file_for_test
+    end
+  end
+
 end
